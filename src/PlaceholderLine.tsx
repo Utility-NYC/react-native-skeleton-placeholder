@@ -20,7 +20,7 @@ export const PlaceholderLine: React.FC<PlaceholderLineProps> = ({
   height = SIZES.normal,
   color = COLORS.primary,
   width = 100,
-  noMargin = false,
+  noMargin = true,
   style,
 }) => {
   const backgroundColor = color;
@@ -32,7 +32,7 @@ export const PlaceholderLine: React.FC<PlaceholderLineProps> = ({
     borderRadius,
     height,
     marginBottom,
-    width
+    width,
   };
 
   const animationStyle = useAnimation();
