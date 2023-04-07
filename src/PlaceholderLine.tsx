@@ -1,15 +1,15 @@
 import React from "react";
-import { Animated, View, ViewProps } from "react-native";
+import { Animated, View, ViewProps, ViewStyle } from "react-native";
 import { useAnimation } from "./animations/context";
 import { COLORS, SIZES } from "./tokens";
 
 export interface PlaceholderLineProps extends ViewProps {
   /* The line height, default is 12  */
-  height?: number;
+  height?: ViewStyle["height"];
   /* The line color, default is #efefef  */
   color?: string;
   /* The line width in percent, default is 100(%)  */
-  width?: number;
+  width?: ViewStyle["width"];
   /* Defines if a line should have a margin bottom or not, default is false */
   noMargin?: boolean;
   /* Customize the style of the underlying View component */
@@ -24,7 +24,7 @@ export const PlaceholderLine: React.FC<PlaceholderLineProps> = ({
   style,
 }) => {
   const backgroundColor = color;
-  const borderRadius = height / 4;
+  const borderRadius = typeof height === "number" ? height / 4 : 8;
   const marginBottom = noMargin ? 0 : height;
 
   const computedStyle = {
